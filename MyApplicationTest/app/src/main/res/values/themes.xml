@@ -32,6 +32,7 @@
     <style name="EditText" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense">
         <!-- Add style here -->
 
+
     </style>
 
     <!-- Specific Style : Button -->
