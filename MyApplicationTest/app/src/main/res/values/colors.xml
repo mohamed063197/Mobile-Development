@@ -5,22 +5,13 @@
 
     /* Color Material Design */
 
-    <color name="primary">#4CAF50</color>
-    <color name="primary_dark">#388E3C</color>
-    <color name="primary_light">#C8E6C9</color>
+    <color name="primary">#FF5722</color> /* 500 */
+    <color name="primaryDarK">#FFA000</color> /* 700 */
+    <color name="accent">#B39DDB</color> /* 200 */
 
-    <color name="accent">#FFC107</color>
-    <color name="primary_text">#212121</color>
-    <color name="secondary_text">#757575</color>
+    <color name="controlHighlight">#FF5722</color> /* color button le moment ou je click */
+    <color name="buttonNormal">#FFA000</color> /* color button */
+    <color name="controlActivated">#B39DDB</color> /* color button active ( le radio buttom est active) */
 
-    <color name="icons">#FFFFFF</color>
-    <color name="divider">#BDBDBD</color>
 
-    <!-- Additional Attributes -->
-    <color name="color_background">#FFFFFF</color>
-    <color name="color_on_background">#000000</color>
-    <color name="color_surface">#FFFFFF</color>
-    <color name="color_on_surface">#000000</color>
-    <color name="color_error">#B00020</color>
-    <color name="color_on_error">#FFFFFF</color>
 </resources>

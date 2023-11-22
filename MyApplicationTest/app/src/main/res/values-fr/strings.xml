@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="app_name">Mon application</string>
+        <string name="display_textField"> C\'est mon premier text </string>
+        <string name="email">Email</string>
+        <string name="password">Mot de passe</string>
+        <string name="back">Retour</string>
+        <string name="welcome">Bienvenue</string>
+
+        <string name="previous">Precedent</string>
+        <string name="next">Suivant</string>
+</resources>

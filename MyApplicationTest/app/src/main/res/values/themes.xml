@@ -1,34 +1,42 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-
-        <!-- Global Style : Color -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_dark</item>
-        <item name="colorOnPrimary">@color/white</item>
-
-        <item name="colorSecondary">@color/accent</item>
-        <item name="colorSecondaryVariant">@color/accent</item>
-        <item name="colorOnSecondary">@color/white</item>
-
-        <!-- Global Style : Font -->
-        <item name="android:colorBackground">@color/color_background</item>
-        <item name="colorOnBackground">@color/color_on_background</item>
-        <item name="colorSurface">@color/color_surface</item>
-
-        <item name="colorOnSurface">@color/color_on_surface</item>
-        <item name="colorError">@color/color_error</item>
-        <item name="colorOnError">@color/color_on_error</item>
+    <style name="Base.Theme.MyApplication" parent="Theme.Material3.Light.NoActionBar">
 
     </style>
 
-    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
-    <!-- Specific Style : font of button apply -->
-    <style name="text_theme" parent="MaterialAlertDialog.Material3.Title.Text">
+        <!-- Style Color : Global -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDarK</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <!-- Style Color : Button -->
+        <item name="colorControlHighlight">@color/controlHighlight</item>
+        <item name="colorButtonNormal">@color/buttonNormal</item>
+        <item name="colorControlActivated">@color/controlActivated</item>
+
+
+
+
+    </style>
+
+    <!-- Specific Style : Title -->
+    <style name="TitleText" parent="MaterialAlertDialog.Material3.Title.Text">
         <item name="android:textColor">#EE0000</item>
+    </style>
+
+    <!-- Specific Style : Edit Text -->
+    <style name="EditText" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense">
+        <!-- Add style here -->
+
+    </style>
+
+    <!-- Specific Style : Button -->
+    <style name="Button" parent="TextAppearance.MaterialComponents.Button">
+    <!-- Add style here -->
     </style>
 
 </resources>

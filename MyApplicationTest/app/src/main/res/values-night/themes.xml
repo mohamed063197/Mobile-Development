@@ -1,24 +1,40 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
 
-        <!-- Global Style : Color -->
-        <item name="colorPrimary">@color/primary_light</item>
-        <item name="colorPrimaryVariant">@color/primary_dark</item>
-        <item name="colorOnPrimary">@color/white</item>
+    </style>
 
-        <item name="colorSecondary">@color/accent</item>
-        <item name="colorSecondaryVariant">@color/accent</item>
-        <item name="colorOnSecondary">@color/white</item>
+    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
-        <item name="android:colorBackground"></item>
-        <item name="colorOnBackground"></item>
-        <item name="colorSurface"></item>
-        <item name="colorOnSurface"></item>
-        <item name="colorError"></item>
-        <item name="colorOnError"></item>
+        <!-- Style Color : Global -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDarK</item>
+        <item name="colorAccent">@color/accent</item>
 
+        <!-- Style Color : Button -->
+        <item name="colorControlHighlight">@color/controlHighlight</item>
+        <item name="colorButtonNormal">@color/buttonNormal</item>
+        <item name="colorControlActivated">@color/controlActivated</item>
+
+        <!-- Style Color : Button -->
+
+
+    </style>
+
+    <!-- Specific Style : Title -->
+    <style name="TitleText" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">#EE0000</item>
+    </style>
+
+    <!-- Specific Style : Edit Text -->
+    <style name="EditText" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+        <!-- Add style here -->
+    </style>
+
+    <!-- Specific Style : Button -->
+    <style name="Button" parent="TextAppearance.MaterialComponents.Button">
+        <!-- Add style here -->
     </style>
 </resources>

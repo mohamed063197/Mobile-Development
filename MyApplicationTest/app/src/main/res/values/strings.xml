@@ -1,13 +1,11 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="display_textField"> C\'est mon premier text </string>
+    <string name="display_textField">it\'s my first text</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="back">Back</string>
-    <string name="welcome">Bienvenue</string>
+    <string name="welcome">Welcome</string>
 
     <string name="previous">Previous</string>
     <string name="next">Next</string>
-
-
 </resources>
