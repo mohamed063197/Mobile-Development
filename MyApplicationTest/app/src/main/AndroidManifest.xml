@@ -24,7 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".ActionbarToolbar"></activity>
+        <activity android:name=".StandaloneToolbar"></activity>
+        <activity android:name=".CtxToolbar"></activity>
     </application>
 
 </manifest>

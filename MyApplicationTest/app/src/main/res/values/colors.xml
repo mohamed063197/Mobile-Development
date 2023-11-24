@@ -5,8 +5,8 @@
 
     /* Color Material Design */
 
-    <color name="primary">#FF5722</color> /* 500 */
-    <color name="primaryDarK">#FFA000</color> /* 700 */
+    <color name="primary">#2196F3</color> /* 500 */
+    <color name="primaryDarK">#1976D2</color> /* 700 */
     <color name="accent">#B39DDB</color> /* 200 */
 
     <color name="controlHighlight">#FF5722</color> /* color button le moment ou je click */

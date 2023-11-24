@@ -48,6 +48,23 @@
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:text="@string/next" />
-    </LinearLayout>
 
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/standalone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="STANDALONE TOOLBAR"
+        android:layout_marginTop="50dp"/>
+    <Button
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TOOLBAR ACTIONBAR"/>
+    <Button
+        android:id="@+id/context_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONTEXTUEL MENU"/>
 </LinearLayout>

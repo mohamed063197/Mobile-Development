@@ -3,10 +3,9 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -98,6 +97,40 @@ public class Home extends AppCompatActivity {
                     id_current=0;
 
                 img_Viewer.setImageResource(imgs.get(id_current));
+            }
+        });
+
+
+        /* Button Next */
+        Button btn_standalone_toolbar = (Button) findViewById(R.id.standalone);
+        btn_standalone_toolbar.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, StandaloneToolbar.class);
+                startActivity(intent);
+            }
+        });
+
+        /* Button Next */
+        Button btn_actionbar_toolbar = (Button) findViewById(R.id.actionbar);
+        btn_actionbar_toolbar.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, ActionbarToolbar.class);
+                startActivity(intent);
+            }
+        });
+
+        /* Button Next */
+        Button btn_context_menu_toolbar = (Button) findViewById(R.id.context_menu);
+        btn_context_menu_toolbar.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, CtxToolbar.class);
+                startActivity(intent);
             }
         });
 
