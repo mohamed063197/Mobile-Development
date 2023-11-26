@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+        <!-- General -->
         <string name="app_name">Mon application</string>
+
+        <!-- Login -->
+        <string name="LoginTitle"> Content de vous revoir </string>
+        <String name="LoginSubmit"> Connection </String>
+
+        <!-- -->
         <string name="display_textField"> C\'est mon premier text </string>
         <string name="email">Email</string>
         <string name="password">Mot de passe</string>

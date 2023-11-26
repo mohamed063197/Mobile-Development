@@ -1,5 +1,10 @@
 <resources>
+    <!-- General -->
     <string name="app_name">My Application</string>
+    <!-- Login -->
+    <string name="LoginTitle"> Happy to see you again </string>
+    <String name="LoginSubmit"> Login </String>
+    <!-- -->
     <string name="display_textField">it\'s my first text</string>
     <string name="email">Email</string>
     <string name="password">Password</string>

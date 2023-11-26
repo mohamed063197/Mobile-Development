@@ -9,7 +9,7 @@
     <color name="primaryDarK">#1976D2</color> /* 700 */
     <color name="accent">#B39DDB</color> /* 200 */
 
-    <color name="controlHighlight">#FF5722</color> /* color button le moment ou je click */
+    <color name="controlHighlight">#673AB7</color> /* color button le moment ou je click */
     <color name="buttonNormal">#FFA000</color> /* color button */
     <color name="controlActivated">#B39DDB</color> /* color button active ( le radio buttom est active) */
 

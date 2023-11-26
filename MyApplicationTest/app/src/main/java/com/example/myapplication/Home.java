@@ -1,11 +1,13 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,12 +23,35 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toast.makeText(this, "OnCreate - Home", Toast.LENGTH_LONG).show();
-
         setContentView(R.layout.activity_home);
 
         Bundle b = getIntent().getExtras();//get parameters from Main Activity
         TextView welcomeText = (TextView) findViewById(R.id.welcomeText);
         welcomeText.setText(b.getString("mail") + " " + b.getString("password"));
+
+        /* Init Toolbar */
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setSubtitle("subtitle");
+        /* add menu to toolbar */
+        toolbar.inflateMenu(R.menu.menu_main);
+        /* Item menu action */
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                String title = (String) item.getTitle();
+                Toast.makeText(Home.this, title + " Selected !", Toast.LENGTH_SHORT).show();
+
+                if(item.getItemId() == R.id.save){ //click in button save
+
+                } else if (item.getItemId() == R.id.mail){ // click in button mail
+
+                }else{ //other case
+
+                }
+                return false;
+            }
+        });
 
         /* back button */
         final Button btn_back = (Button) findViewById(R.id.back);
@@ -73,6 +98,7 @@ public class Home extends AppCompatActivity {
                 img_Viewer.setImageResource(imgs.get(id_current));
             }
         });
+
         /* Button Next */
         Button btn_next = (Button) findViewById(R.id.next);
         btn_next.setOnClickListener(new View.OnClickListener(){
@@ -101,38 +127,7 @@ public class Home extends AppCompatActivity {
         });
 
 
-        /* Button Next */
-        Button btn_standalone_toolbar = (Button) findViewById(R.id.standalone);
-        btn_standalone_toolbar.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Home.this, StandaloneToolbar.class);
-                startActivity(intent);
-            }
-        });
-
-        /* Button Next */
-        Button btn_actionbar_toolbar = (Button) findViewById(R.id.actionbar);
-        btn_actionbar_toolbar.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Home.this, ActionbarToolbar.class);
-                startActivity(intent);
-            }
-        });
-
-        /* Button Next */
-        Button btn_context_menu_toolbar = (Button) findViewById(R.id.context_menu);
-        btn_context_menu_toolbar.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Home.this, CtxToolbar.class);
-                startActivity(intent);
-            }
-        });
 
     }
 

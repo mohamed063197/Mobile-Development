@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Map;
+import java.util.Iterator;
 
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,57 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        /*
-            Button submit
-         */
-        //le boutton doit etre constant et non modifiable.
-        final Button btn_submit = (Button) findViewById(R.id.submit);
-        btn_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                EditText mail = (EditText) findViewById(R.id.mail);
-                EditText password = (EditText) findViewById(R.id.password);
-                HashMap errors = connexionIsValid(mail.getText().toString(), password.getText().toString());
-                if(!errors.isEmpty()){
-                    //display errors.
-                    return;
-                }
-                /* mettre les informations dans le buffer(comme une dict") */
-                Bundle params = new Bundle();
-                params.putString("mail", mail.getText().toString());
-                params.putString("password", password.getText().toString());
-
-                /* Mettre le buffer dans une variable global myIntent et le passer en parametre a une autre fenetre */
-                Intent myIntent = new Intent(MainActivity.this, Home.class);
-                myIntent.putExtras(params);
-                startActivity(myIntent);
-
-            }
-        });
-
-
-
     }
 
-    public HashMap connexionIsValid(String mail, String pwd){
-        HashMap errors = new HashMap<String,String>();
 
-        // mail
-        if (mail.isEmpty()){
-            errors.put("mail","Mail est vide");
-        }else if (mail.length()<3){//regex
-            errors.put("mail","Mail est incorrect");
-        }
-
-        // pwd
-        if (pwd.isEmpty()){
-            errors.put("pwd","Password est vide");
-        }else if (pwd.length()<3){//regex
-            errors.put("pwd","Password est incorrect");
-        }
-        return errors;
-    }
 
     @Override
     public void onStart(){//call before pause
