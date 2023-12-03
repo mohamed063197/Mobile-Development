@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login1);
-        setContentView(R.layout.activity_login2);
 
         /* back button */
         Button btn_back = (Button) findViewById(R.id.back);
@@ -31,49 +30,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        /*
-            Button submit
-         */
-        //le boutton doit etre constant et non modifiable.
-        Button btn_submit = (Button) findViewById(R.id.submit);
-        btn_submit.setOnClickListener(new View.OnClickListener() {
+        /* mail button */
+        Button btn_mail = (Button) findViewById(R.id.btn_mail);
+        btn_mail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("je suis la1");
-                EditText mail = (EditText) findViewById(R.id.mail);
-                EditText password = (EditText) findViewById(R.id.password);
-                System.out.println("je suis la2");
-                User user = new User();
 
-                mail.setError(null);
-                password.setError(null);
-
-                if (!user.inputControlLogin(mail.getText().toString(), password.getText().toString())){
-                    //Display Errors
-                    for(Map.Entry<Error, String> entry : user.getErrors().entrySet()){
-                        if (entry.getKey() == Error.MAIL)
-                            mail.setError(entry.getValue());
-                        else if(entry.getKey() == Error.PASSWORD)
-                            password.setError(entry.getValue());
-                    }
-
-                }else{
-                    /* mettre les informations dans le buffer(comme une dict") */
-                    Bundle params = new Bundle();
-                    params.putString("mail", mail.getText().toString());
-                    params.putString("password", password.getText().toString());
-
-                    /* Mettre le buffer dans une variable global myIntent et le passer en parametre a une autre fenetre */
-                    Intent myIntent = new Intent(LoginActivity.this, HomeActivity.class);
-                    myIntent.putExtras(params);
-                    startActivity(myIntent);
-                }
-
-
-
+                /* Mettre le buffer dans une variable global myIntent et le passer en parametre a une autre fenetre */
+                Intent myIntent = new Intent(LoginActivity.this, LoginActivity2.class);
+                startActivity(myIntent);
             }
         });
+
     }
-
-
 }

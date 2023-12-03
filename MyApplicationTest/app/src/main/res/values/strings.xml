@@ -28,6 +28,9 @@
     <string name="name">Name</string>
     <string name="tel">Phone</string>
     <string name="age">Age</string>
+    <string name="SingInTitle2">Sing In</string>
+    <string name="SingInTitle3">Sing In</string>
+    <string name="ageDescription">YO</string>
 
 
     <!-- Home -->

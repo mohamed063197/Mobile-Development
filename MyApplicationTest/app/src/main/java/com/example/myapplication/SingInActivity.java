@@ -18,7 +18,7 @@ import com.google.android.material.slider.Slider;
 
 import java.util.Map;
 
-public class SinginActivity extends AppCompatActivity {
+public class SingInActivity extends AppCompatActivity {
 
     /* Submit Button */
     Button btn_submit;
@@ -56,14 +56,17 @@ public class SinginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_singin);
+
+        setContentView(R.layout.activity_singin1);
+        setContentView(R.layout.activity_singin2);
+        setContentView(R.layout.activity_singin3);
 
         /* back button */
         final Button btn_back = (Button) findViewById(R.id.back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SinginActivity.this.finish();
+                SingInActivity.this.finish();
             }
         });
 
@@ -82,7 +85,7 @@ public class SinginActivity extends AppCompatActivity {
 
                 if (!user.inputControlSingin(sMail, sPassword, sPasswordC,
                                              sName, sNumeroTel, nAge)){
-                    initFieldError();
+
                     displayFieldError();
 
                 }else{
@@ -92,7 +95,7 @@ public class SinginActivity extends AppCompatActivity {
                     params.putString("password", password.getText().toString());
 
                     /* Mettre le buffer dans une variable global myIntent et le passer en parametre a une autre fenetre */
-                    Intent myIntent = new Intent(SinginActivity.this, HomeActivity.class);
+                    Intent myIntent = new Intent(SingInActivity.this, HomeActivity.class);
                     myIntent.putExtras(params);
                     startActivity(myIntent);
 
@@ -118,25 +121,6 @@ public class SinginActivity extends AppCompatActivity {
         this.sName = name.getText().toString();
         this.sNumeroTel = numeroTel.getText().toString();
         initAge();
-    }
-
-    public void initFieldError(){
-
-        //Init champ error
-        this.error_mail      = (TextView) findViewById(R.id.error_mail);
-        this.error_pwd       = (TextView) findViewById(R.id.error_pwd);
-        this.error_pwdC      = (TextView) findViewById(R.id.error_pwdc);
-        this.error_name      = (TextView) findViewById(R.id.error_name);
-        this.error_numeroTel = (TextView) findViewById(R.id.error_tel);
-        this.error_age       = (TextView) findViewById(R.id.error_age);
-
-        this.error_mail = Utils.champErrorGone(error_mail);
-        this.error_pwd  = Utils.champErrorGone(error_pwd);
-        this.error_pwdC = Utils.champErrorGone(error_pwdC);
-        this.error_name = Utils.champErrorGone(error_name);
-        this.error_numeroTel = Utils.champErrorGone(error_numeroTel);
-        this.error_age = Utils.champErrorGone(error_age);
-
     }
 
     public void displayFieldError(){
