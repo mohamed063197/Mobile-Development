@@ -1,16 +1,40 @@
 <resources>
     <!-- General -->
     <string name="app_name">My Application</string>
-    <!-- Login -->
-    <string name="LoginTitle"> Happy to see you again </string>
-    <String name="LoginSubmit"> Login </String>
-    <!-- -->
-    <string name="display_textField">it\'s my first text</string>
+
+    <!-- Presentation -->
+    <string name="PresentationTextScann"> Scan the barcode on the medicine box and find out what this medicine is used for</string>
+
+    <!-- Login and SingIn-->
     <string name="email">Email</string>
     <string name="password">Password</string>
+
+
+    <!-- Login -->
+    <string name="LoginTitle">Happy to see you again</string>
+    <string name="LoginSubmit">Login</string>
+    <string name="content_description_start_icon">search</string>
+    <string name="login_connect_google">Login with Google</string>
+    <string name="login_connect_facebook">Login with Facebook</string>
+    <string name="login_connect_email">Login with email</string>
+
+    <string name="loginTitle2">Login</string>
+    <string name="loginForgotPassword">I don\'t remember the password?</string>
+
+    <!-- Sing in -->
+    <string name="SingInTitle">Become A Member</string>
+    <string name="SingInSubmit">Sing in</string>
+    <string name="passwordC">Confirmation</string>
+    <string name="name">Name</string>
+    <string name="tel">Phone</string>
+    <string name="age">Age</string>
+
+
+    <!-- Home -->
     <string name="back">Back</string>
     <string name="welcome">Welcome</string>
-
     <string name="previous">Previous</string>
     <string name="next">Next</string>
+
+
 </resources>

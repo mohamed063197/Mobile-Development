@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,7 +16,7 @@ import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Home extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class Home extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 String title = (String) item.getTitle();
-                Toast.makeText(Home.this, title + " Selected !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, title + " Selected !", Toast.LENGTH_SHORT).show();
 
                 if(item.getItemId() == R.id.save){ //click in button save
 
@@ -58,7 +57,7 @@ public class Home extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Home.this.finish();
+                HomeActivity.this.finish();
             }
         });
 

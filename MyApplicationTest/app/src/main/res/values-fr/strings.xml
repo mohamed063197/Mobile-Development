@@ -3,17 +3,40 @@
         <!-- General -->
         <string name="app_name">Mon application</string>
 
-        <!-- Login -->
-        <string name="LoginTitle"> Content de vous revoir </string>
-        <String name="LoginSubmit"> Connection </String>
+        <!-- Presentation -->
+        <string name="PresentationTextScann">Scanner le code barre qui se trouve sur la boite du medicament et découvrer a quoi il sert ce medicament</string>
 
-        <!-- -->
-        <string name="display_textField"> C\'est mon premier text </string>
+        <!-- Login and SingIn-->
         <string name="email">Email</string>
         <string name="password">Mot de passe</string>
+
+
+        <!-- Login -->
+        <string name="LoginTitle">Content de vous revoir</string>
+        <string name="LoginSubmit">Connection</string>
+        <string name="content_description_start_icon">rechercher</string>
+        <string name="login_connect_google">Se connecter avec Google</string>
+        <string name="login_connect_facebook">Se connecter avec Facebook</string>
+        <string name="login_connect_email">Se connecter avec Mail</string>
+
+        <string name="loginTitle2">Se connecter</string>
+        <string name="loginForgotPassword">Je me souvient plus du mot de passe?</string>
+
+        <!-- Sing in -->
+        <string name="SingInTitle">Devenir Membre</string>
+        <string name="SingInSubmit">Inscription</string>
+        <string name="passwordC">Confirmation</string>
+        <string name="name">Nom complet</string>
+        <string name="tel">Tel</string>
+        <string name="age">Age</string>
+
+
+
+        <!-- Home -->
         <string name="back">Retour</string>
         <string name="welcome">Bienvenue</string>
-
         <string name="previous">Precedent</string>
         <string name="next">Suivant</string>
+
+
 </resources>

@@ -22,11 +22,30 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "OnCreate - Main", Toast.LENGTH_LONG).show();
         setContentView(R.layout.activity_main);
 
+        /* Submit Login */
+        Button login_submit = (Button) findViewById(R.id.login);
+        login_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(myIntent);
 
+            }
+        });
+
+
+        /* Submit SingIn */
+        Button singin_submit = (Button) findViewById(R.id.singIn);
+        singin_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, SinginActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
     }
-
-
+    
 
     @Override
     public void onStart(){//call before pause

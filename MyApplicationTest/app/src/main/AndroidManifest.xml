@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".Home"
+            android:name=".HomeActivity"
             android:exported="false" />
 
         <activity
@@ -32,7 +32,7 @@
             android:exported="false"/>
 
         <activity
-            android:name=".SingInActivity"
+            android:name=".SinginActivity"
             android:exported="false"/>
 
     </application>

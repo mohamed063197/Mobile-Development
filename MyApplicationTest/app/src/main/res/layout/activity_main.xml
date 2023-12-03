@@ -3,13 +3,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/display"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="30dp"
-    android:gravity="center"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginBottomTitle"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/paddingTopTitle"
+            android:paddingBottom="@dimen/paddingBottomTitle"
+            android:text="@string/welcome"
+            android:textAlignment="center"
+            android:textAppearance="@style/Title.Myapplication.Page" />
+    </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
@@ -18,14 +34,26 @@
         android:src="@drawable/purple" />
 
     <TextView
-        android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/welcome"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textAlignment="center" />
+        android:textAppearance="@style/Body.Myapplication.Page"
+        android:text="@string/PresentationTextScann"
+        android:gravity="center"
+        android:layout_marginBottom="50dp"
+        />
+
+
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/LoginSubmit" />
+
+    <Button
+        android:id="@+id/singIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/SingInSubmit" />
 
 </LinearLayout>
