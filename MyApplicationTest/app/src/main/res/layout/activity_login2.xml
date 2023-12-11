@@ -14,6 +14,7 @@
 
     tools:context=".LoginActivity2">
     <LinearLayout
+        android:id="@+id/ddd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -57,23 +58,19 @@
             android:padding="10dp"
             android:layout_marginBottom="20dp"
             android:text="@string/loginTitle2"
-
             android:textAlignment="center"/>
-
     </LinearLayout>
 
-
-
     <LinearLayout
+        android:id="@+id/ggg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="top"
         android:layout_marginTop="80dp">
-
-        <!-- Mail -->
+        <!-- M  ail -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/loginMail"
+            android:id="@+id/loginMailLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -84,6 +81,7 @@
             app:counterEnabled="true"
             app:counterMaxLength="20">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/loginMail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
@@ -91,7 +89,7 @@
 
         <!-- Password -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/loginPassword"
+            android:id="@+id/loginPasswordLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -100,11 +98,14 @@
             app:endIconMode="password_toggle"
             app:errorEnabled="true"
             app:counterEnabled="true"
-            app:counterMaxLength="20">
+            app:counterMaxLength="20"
+            >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/loginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -117,10 +118,7 @@
             android:id="@+id/loginRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/loginForgotPassword"
-
-
-        />
+            android:text="@string/loginForgotPassword" />
 
 
     </LinearLayout>

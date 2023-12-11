@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.classes.GlobalVariables;
+import com.example.myapplication.classes.User;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,11 +26,18 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Toast.makeText(this, "OnCreate - Home", Toast.LENGTH_LONG).show();
         setContentView(R.layout.activity_home);
-
+        /*
         Bundle b = getIntent().getExtras();//get parameters from Main Activity
-        TextView welcomeText = (TextView) findViewById(R.id.welcomeText);
-        welcomeText.setText(b.getString("mail") + " " + b.getString("password"));
 
+        welcomeText.setText(b.getString("mail") + " " + b.getString("password"));
+        */
+        User user = new User();
+        user.setId(GlobalVariables.getUserIdCourant());
+        TextView welcomeText = (TextView) findViewById(R.id.welcomeText);
+        welcomeText.setText("Hi !" + "Anonyme");
+        if(user.read(HomeActivity.this)){
+            welcomeText.setText("Hi !" + user.getName());
+        }
         /* Init Toolbar */
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
@@ -52,14 +62,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        /* back button */
-        final Button btn_back = (Button) findViewById(R.id.back);
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                HomeActivity.this.finish();
-            }
-        });
 
         //load imgs int dict
         ImageView img_Viewer = (ImageView) findViewById(R.id.imgView);
@@ -124,9 +126,6 @@ public class HomeActivity extends AppCompatActivity {
                 img_Viewer.setImageResource(imgs.get(id_current));
             }
         });
-
-
-
 
     }
 

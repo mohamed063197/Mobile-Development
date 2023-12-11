@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.example.myapplication.classes.Error;
 import com.example.myapplication.classes.User;
@@ -79,9 +81,38 @@ public class SingInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+              age.addOnSliderTouchListener(new Slider.OnSliderTouchListener() {
+                  @SuppressLint("RestrictedApi")
+                  @Override
+                  public void onStartTrackingTouch(@NonNull Slider slider) {
+                      //Responds when slider's touch event is being started
+                  }
+
+                  @SuppressLint("RestrictedApi")
+                  @Override
+                  public void onStopTrackingTouch(@NonNull Slider slider) {
+                      //Responds to when slider's touch event is being stopped
+
+                  }
+
+
+              });
+
+              age.addOnChangeListener(new Slider.OnChangeListener() {
+                  @SuppressLint("RestrictedApi")
+                  @Override
+                  public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
+                        //Responds to when slider's value is changed
+                      if (fromUser)
+                        slider.getValue();
+                  }
+              });
+
                 initField();
                 initAttribut();
                 user = new User();
+
+
 
                 if (!user.inputControlSingin(sMail, sPassword, sPasswordC,
                                              sName, sNumeroTel, nAge)){

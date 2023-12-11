@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".classes.GlobalVariables"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +15,11 @@
         tools:targetApi="31">
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"/>
+        <!-- screenOrientation : Pour bloquer le screen en portrait -->
+        <!-- configChanges : pour dire que il ne faut pas passer par les fonctions on restart .. lors du changement de l'orientation-->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
@@ -24,7 +29,7 @@
 
         <activity
             android:name=".SingInActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
