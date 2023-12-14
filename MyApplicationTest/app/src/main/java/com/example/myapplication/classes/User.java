@@ -2,7 +2,12 @@ package com.example.myapplication.classes;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Pair;
+
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 
 import java.util.HashMap;
@@ -34,9 +39,17 @@ public class User {
         this.dbErrors = new HashMap<Error,String>();
     }
 
+    /* Séréalisation */
+
+
+
+
+
+
+
     /*
-    CONTROL METHODS
-     */
+        CONTROL METHODS
+         */
     public boolean inputControlLogin(String mail, String password){
         this.errors.clear();
         boolean mail_valid = this.setMail(mail);
@@ -52,6 +65,25 @@ public class User {
         return (db_mail_valid);
     }
 
+    public boolean dbControlSingInStep1(Context context){
+        this.dbErrors.remove(Error.MAIL);
+        this.dbErrors.remove(Error.PASSWORD);
+        this.dbErrors.remove(Error.PASSWORD_COMFIRMATION);
+
+        boolean db_mail_valid = this.readByMail(context);
+        return (db_mail_valid);
+    }
+
+    public boolean dbControlSingInStep2(Context context){
+        this.dbErrors.remove(Error.NAME);
+        this.dbErrors.remove(Error.NUMERO_TELEPHONE);
+        this.dbErrors.remove(Error.AGE);
+
+        boolean db_phone_valid = this.readByPhone(context);
+        return (db_phone_valid);
+    }
+
+
     public void clear(){
         this.id = 0;
         this.name = "";
@@ -63,19 +95,26 @@ public class User {
         this.errors.clear();
     }
 
-    public boolean inputControlSingin(String mail, String password, String passwordC,
-                                      String name, String numeroTel, int age){
-        this.errors.clear();
+    public boolean inputControlSingInStep1(String mail, String password, String passwordC){
+        this.errors.remove(Error.MAIL);
+        this.errors.remove(Error.PASSWORD);
+        this.errors.remove(Error.PASSWORD_COMFIRMATION);
         boolean mail_valid = this.setMail(mail);
         boolean pwd_valid = this.setPassword(password);
         boolean pwdC_valid = this.setPasswordC(passwordC);
+        return (mail_valid &&
+                pwd_valid &&
+                pwdC_valid );
+    }
+
+    public boolean inputControlSingInStep2(String name, String numeroTel, int age){
+        this.errors.remove(Error.NAME);
+        this.errors.remove(Error.NUMERO_TELEPHONE);
+        this.errors.remove(Error.AGE);
         boolean name_valid = this.setName(name);
         boolean numeroTel_valid = this.setNumeroTel(numeroTel);
         boolean age_valid = this.setAge(age);
-        return (mail_valid &&
-                pwd_valid &&
-                pwdC_valid &&
-                name_valid &&
+        return (name_valid &&
                 numeroTel_valid &&
                 age_valid);
     }
@@ -96,11 +135,15 @@ SAVE METHODS
         boolean resultUpdate;
         if (this.id == 0){
             resultAdd = db.addUser(this);
+            this.id= resultAdd.second;
+            db.close();
             return resultAdd.first;
         } else if (this.id != 0){
             resultUpdate = db.updateUser(this);
+            db.close();
             return resultUpdate;
         }
+        db.close();
         return false;
    }
 /*
@@ -108,7 +151,9 @@ READ METHODS
  */
     public static ArrayList<User> readAll(Context content){
         MyDatabase db = new MyDatabase(content);
-        return db.readAllUsers();
+        ArrayList<User> users = db.readAllUsers();
+        db.close();
+        return users;
     }
    public boolean read(Context context){
         this.dbErrors.remove(Error.MAIL);
@@ -117,8 +162,10 @@ READ METHODS
         boolean find = db.readUser(this);
         if (!find){
             this.dbErrors.put(Error.MAIL,"mail ou le mot de passe n'existe pas");
+            db.close();
             return false;
         }
+        db.close();
         return true;
    }
     public boolean readByMailPwd(Context context){
@@ -128,8 +175,36 @@ READ METHODS
         boolean find = db.readUserByMailPwd(this);
         if (!find){
             this.dbErrors.put(Error.MAIL,"mail ou le mot de passe n\'existe pas");
+            db.close();
             return false;
         }
+        db.close();
+        return true;
+    }
+
+    public boolean readByMail(Context context){
+        this.dbErrors.remove(Error.MAIL);
+        MyDatabase db = new MyDatabase(context);
+        boolean find = db.readUserByMail(this);
+        if (find){
+            this.dbErrors.put(Error.MAIL,"Mail exist deja");
+            db.close();
+            return false;
+        }
+        db.close();
+        return true;
+    }
+
+    public boolean readByPhone(Context context){
+        this.dbErrors.remove(Error.NUMERO_TELEPHONE);
+        MyDatabase db = new MyDatabase(context);
+        boolean find = db.readUserByPhone(this);
+        if (find){
+            this.dbErrors.put(Error.NUMERO_TELEPHONE,"Numero de tel exist deja");
+            db.close();
+            return false;
+        }
+        db.close();
         return true;
     }
     /*
@@ -137,7 +212,9 @@ READ METHODS
      */
    public boolean delete(Context context){
        MyDatabase db = new MyDatabase(context);
-       return db.deleteUser(this);
+       boolean success= db.deleteUser(this);
+       db.close();
+       return success;
    }
 
 
@@ -217,7 +294,7 @@ READ METHODS
         this.passwordC = passwordC;
 
         this.errors.remove(Error.PASSWORD_COMFIRMATION);
-        if (this.passwordC != this.password){
+        if (!this.passwordC.equals(this.password)){
             this.errors.put(Error.PASSWORD_COMFIRMATION, "Password et la confirmation ne sont pas les meme");
             return false;
         }
@@ -251,5 +328,6 @@ READ METHODS
     public int getAge() {
         return age;
     }
+
 
 }

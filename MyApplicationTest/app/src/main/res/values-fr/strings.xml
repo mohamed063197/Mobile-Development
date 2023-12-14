@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
         <!-- General -->
-        <string name="app_name">Mon application</string>
+        <string name="app_name">Pharmax</string>
 
         <!-- Presentation -->
         <string name="PresentationTextScann">Scanner le code barre qui se trouve sur la boite du medicament et découvrer a quoi il sert ce medicament</string>
@@ -25,6 +25,9 @@
         <!-- Sing in -->
         <string name="SingInTitle">Devenir Membre</string>
         <string name="SingInSubmit">Inscription</string>
+        <string name="singIn_connect_google">S\'inscrire avec Google</string>
+        <string name="singIn_connect_facebook">S\'inscrire avec Facebook</string>
+        <string name="singIn_connect_email">S\'inscrire avec email</string>
         <string name="passwordC">Confirmation</string>
         <string name="name">Nom complet</string>
         <string name="tel">Tel</string>
@@ -33,10 +36,10 @@
         <string name="SingInTitle3">Inscription</string>
         <string name="ageDescription">ans</string>
 
-
-
         <!-- Home -->
         <string name="back">Retour</string>
+        <string name="HomeQrScanner">SCANNER DE QR</string>
+        <string name="HomeTitle">Scanner</string>
         <string name="welcome">Bienvenue</string>
         <string name="previous">Precedent</string>
         <string name="next">Suivant</string>

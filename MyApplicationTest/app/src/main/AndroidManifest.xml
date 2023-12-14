@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
     <application
         android:name=".classes.GlobalVariables"
         android:allowBackup="true"
@@ -29,6 +31,12 @@
 
         <activity
             android:name=".SingInActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".SingInActivity2"
+            android:exported="false"/>
+        <activity
+            android:name=".SingInActivity3"
             android:exported="false"/>
         <activity
             android:name=".MainActivity"

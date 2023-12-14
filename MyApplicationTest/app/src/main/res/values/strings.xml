@@ -1,6 +1,6 @@
 <resources>
     <!-- General -->
-    <string name="app_name">My Application</string>
+    <string name="app_name">Pharmax</string>
 
     <!-- Presentation -->
     <string name="PresentationTextScann"> Scan the barcode on the medicine box and find out what this medicine is used for</string>
@@ -24,6 +24,9 @@
     <!-- Sing in -->
     <string name="SingInTitle">Become A Member</string>
     <string name="SingInSubmit">Sing in</string>
+    <string name="singIn_connect_google">Sing In with Google</string>
+    <string name="singIn_connect_facebook">Sing In with Facebook</string>
+    <string name="singIn_connect_email">Sing In with email</string>
     <string name="passwordC">Confirmation</string>
     <string name="name">Name</string>
     <string name="tel">Phone</string>
@@ -35,6 +38,8 @@
 
     <!-- Home -->
     <string name="back">Back</string>
+    <string name="HomeQrScanner">QR SCANNER</string>
+    <string name="HomeTitle">Scan</string>
     <string name="welcome">Welcome</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>

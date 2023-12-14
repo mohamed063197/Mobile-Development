@@ -3,45 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/save"
-        android:icon="@drawable/ic_save"
+        android:id="@+id/profil"
+        android:icon="@drawable/ic_profil_24px"
         android:orderInCategory="100"
         android:title="Save"
-        app2:showAsAction="ifRoom"/>
-
+        app2:showAsAction="always"/>
 
     <item
         android:id="@+id/settings"
         android:icon="@drawable/ic_settings"
         android:orderInCategory="100"
-        android:title="settings"
-        app2:showAsAction="ifRoom"
-         />
-
-    <item
-        android:id = "@+id/mail"
-        android:orderInCategory="100"
-        android:title="Email"
-        app2:showAsAction="ifRoom"/>
-
-
-    <item
-        android:id = "@+id/camera"
-        android:orderInCategory="100"
-        android:title="Camera"
-        app2:showAsAction="ifRoom"/>
-
-    <item
-        android:id = "@+id/web_search"
-        android:orderInCategory="100"
-        android:title="Web Search"
-        app2:showAsAction = "ifRoom"/>
+        android:title="Settings"
+        app2:showAsAction="never"/>
 
     <item
         android:id = "@+id/help"
         android:orderInCategory="100"
         android:title="Help"
-        app2:showAsAction="ifRoom"/>
-
+        app2:showAsAction="never"/>
 
 </menu>

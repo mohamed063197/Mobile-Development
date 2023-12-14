@@ -10,7 +10,7 @@
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
 
-    tools:context=".SingInActivity">
+    tools:context=".SingInActivity3">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,8 +67,6 @@
 
     </LinearLayout>
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -78,7 +76,7 @@
 
         <!-- Name -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name"
+            android:id="@+id/singInNameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -89,24 +87,26 @@
             app:counterEnabled="true"
             app:counterMaxLength="20">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/singInName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- N Tel -->
+        <!-- Phone -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/numeroTel"
+            android:id="@+id/singInPhoneLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="N Tel"
+            android:hint="Phone"
             app:startIconDrawable="@drawable/ic_tel_24dp"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:counterEnabled="true"
             app:counterMaxLength="20">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/singInPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone" />
@@ -124,12 +124,11 @@
             android:stepSize="1"/>
 
         <Button
-            android:id="@+id/submit"
+            android:id="@+id/singInSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/SingInSubmit"/>
 
-     
 
     </LinearLayout>
 

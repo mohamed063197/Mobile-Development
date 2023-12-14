@@ -46,31 +46,31 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart(){//call before pause
         super.onStart();
-        Toast.makeText(this, "Start - Main", Toast.LENGTH_LONG).show();
+        ////Toast.makeText(this, "Start - Main", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onResume(){//call before pause
         super.onResume();
-        Toast.makeText(this, "Resume - Main", Toast.LENGTH_LONG).show();
+        ////Toast.makeText(this, "Resume - Main", Toast.LENGTH_LONG).show();
     }
 
 
     @Override
     public void onPause(){//call before pause
         super.onPause();
-        Toast.makeText(this, "Pause - Main", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Pause - Main", Toast.LENGTH_LONG).show();
     }
 
 
     @Override
     public void onStop(){//call before pause
         super.onStop();
-        Toast.makeText(this, "Stop - Main", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Stop - Main", Toast.LENGTH_LONG).show();
     }
 
     public void onDestroy(){
         super.onDestroy();
-        Toast.makeText(this, "Destroy - Main", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Destroy - Main", Toast.LENGTH_LONG).show();
     }
 }

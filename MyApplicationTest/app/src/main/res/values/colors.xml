@@ -5,18 +5,18 @@
 
     /* Color Material Design */
     <!-- General -->
-    <color name="primary">#2196F3</color> /* 500 */
-    <color name="primaryDarK">#1976D2</color> /* 700 */
-    <color name="accent">#B39DDB</color> /* 200 */
+    <color name="primary">#2196F3</color> <!-- 500 -->
+    <color name="primaryDarK">#1976D2</color> <!-- 700 -->
+    <color name="accent">#90CAF9</color> <!-- 200 -->
 
-    <!-- General -->
-    <color name="onPrimary">#4F4F4F</color> /* 500 */
-
+    <!-- Text -->
+    <color name="onPrimary">#FFFFFF</color> <!-- 500 -->
+    <color name="onSecondary">#232323</color> <!-- 500 -->
 
     <!-- Button -->
-    <color name="controlHighlight">#673AB7</color> /* color button le moment ou je click */
-    <color name="buttonNormal">#FFA000</color> /* color button */
-    <color name="controlActivated">#B39DDB</color> /* color button active ( le radio buttom est active) */
+    <!-- <color name="controlHighlight">#673AB7</color> -->
+    <!-- <color name="buttonNormal">#FFA000</color> -->
+    <!-- <color name="controlActivated">#B39DDB</color> -->
 
     <color name="lightGray">#FFFFFF</color>
 
