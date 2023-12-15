@@ -1,10 +1,14 @@
 package com.example.myapplication;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Fragment;
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -19,7 +23,10 @@ import com.example.myapplication.classes.GlobalVariables;
 import com.example.myapplication.classes.User;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -29,17 +36,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
-    TextView tv_QRResult;
-    Button btn_QRCode;
-     MaterialToolbar toolbar;
+    MaterialToolbar toolbar;
+    User user;
+    BottomNavigationView bottom_nav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home);
         toolbar =(MaterialToolbar) findViewById(R.id.topAppBar);
-        tv_QRResult = (TextView) findViewById(R.id.homeQRResult);
-        btn_QRCode = (Button) findViewById(R.id.homeQRCode);
+        bottom_nav = (BottomNavigationView) findViewById(R.id.bottom_nav);
 
         User user = new User();
         user.setId(GlobalVariables.getUserIdCourant());
@@ -48,9 +54,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 /* Handle navigation icon press */
-                Toast.makeText(HomeActivity.this, "navigation menu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, "left !", Toast.LENGTH_SHORT).show();
             }
         });
+
+        /*
+        *   Menu de haut
+        */
         toolbar.setOnMenuItemClickListener(new MaterialToolbar.OnMenuItemClickListener(){
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -69,84 +79,52 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // Ajouter le fragment par défaut s'il n'y a pas d'état enregistré (par exemple, après une rotation de l'écran)
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new HomeFragment())
+                    .commit();
+        }
 
-
-        btn_QRCode.setOnClickListener(new View.OnClickListener() {
+        /*
+         *   Menu de bas
+         */
+        bottom_nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                IntentIntegrator intentIntegrator = new IntentIntegrator(HomeActivity.this);
+            public boolean onNavigationItemSelected(MenuItem item) {
+                if(item.getItemId() == R.id.home) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, new HomeFragment())
+                            .commit();
+                    return true;
+                }else if(item.getItemId() == R.id.calender) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, new CalenderFragment())
+                            .commit();
+                    return true;
+                }else if(item.getItemId() == R.id.scan) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, new ScanFragment())
+                            .commit();
+                    return true;
+                }else if(item.getItemId() == R.id.favorite) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, new FavoriteFragment())
+                            .commit();
+                    return true;
 
-                intentIntegrator.setPrompt("Scan a QR Code");
-                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
-                intentIntegrator.initiateScan();
+                }else if(item.getItemId() == R.id.profil) {
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, new ProfileFragment())
+                                .commit();
+                        return true;
+                }
+                return false;
             }
         });
 
+
+
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if(intentResult != null){
-            String contents = intentResult.getContents();
-            if(contents != null){
-                tv_QRResult.setText(intentResult.getContents());
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public void onStart(){//call before pause
-        super.onStart();
-        //Toast.makeText(this, "Start - Home", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onResume(){//call before pause
-        super.onResume();
-        //Toast.makeText(this, "Resume - Home", Toast.LENGTH_LONG).show();
-    }
-
-
-    @Override
-    public void onPause(){//call before pause
-        super.onPause();
-        //Toast.makeText(this, "Pause - Home", Toast.LENGTH_LONG).show();
-    }
-
-
-    @Override
-    public void onStop(){//call before pause
-        super.onStop();
-        //Toast.makeText(this, "Stop - Home", Toast.LENGTH_LONG).show();
-    }
-
-    public void onDestroy(){
-        super.onDestroy();
-        //Toast.makeText(this, "Destroy - Home", Toast.LENGTH_LONG).show();
-    }
-
-    /*
-    *     public boolean onCreateOptionMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.home_activity_menu, menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item){//donne item selectionner
-        int id = item.getItemId();
-
-        if (id == R.id.back){
-            Toast.makeText(this,"back is clicked", Toast.LENGTH_LONG);
-        }else if ( id == R.id.settings){
-            Toast.makeText(this,"settings has clicked", Toast.LENGTH_LONG);
-        }else{
-            Toast.makeText(this,"Error",Toast.LENGTH_LONG);
-        }
-
-
-
-        return super.onOptionsItemSelected(item);
-    }
-    * */
 }

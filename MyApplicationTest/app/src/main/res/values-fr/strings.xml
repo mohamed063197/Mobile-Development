@@ -2,6 +2,21 @@
 <resources>
         <!-- General -->
         <string name="app_name">Pharmax</string>
+        <string name="premium">Premium</string>
+        <string name="tutorial">Tutoriel</string>
+        <string name="tiktok">Tiktok</string>
+        <string name="insta">Instagram</string>
+        <string name="youtube">Youtube</string>
+        <string name="help">Aide</string>
+        <string name="contact_support">Support de contact</string>
+        <string name="general_termes">Conditions générales de services</string>
+        <string name="privacy_policy">Politique de confidentialité</string>
+        <string name="returns_policy">Politique de retour</string>
+        <string name="subscription">Passer</string>
+        <string name="how_it_work">Comment sa marche</string>
+        <string name="social_media">Réseau sociaux</string>
+        <string name="help_center">centre d\'aide</string>
+        <string name="legal">Politiques</string>
 
         <!-- Presentation -->
         <string name="PresentationTextScann">Scanner le code barre qui se trouve sur la boite du medicament et découvrer a quoi il sert ce medicament</string>
@@ -43,6 +58,12 @@
         <string name="welcome">Bienvenue</string>
         <string name="previous">Precedent</string>
         <string name="next">Suivant</string>
+        <string name="navigation_drawer_open">Ouvrir le menu</string>
+        <string name="navigation_drawer_close">Fermer le menu</string>
+    <string name="home">Home</string>
+    <string name="scan">Scan</string>
+    <string name="favorite">Favorite</string>
+        <string name="profile">Profile</string>
 
 
 </resources>

@@ -16,14 +16,14 @@
         <!-- Style Color : Text -->
         <item name="colorOnPrimary">@color/onPrimary</item>
         <item name="colorOnSecondary">@color/onSecondary</item>
+        
 
+    </style>
 
-
-
-
-</style>
-
-
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in</item>
+        <item name="android:windowExitAnimation">@anim/slid_out</item>
+    </style>
 
     <!-- Title -->
     <style name="Title.Myapplication.Page" parent="TextAppearance.Material3.HeadlineSmall">
