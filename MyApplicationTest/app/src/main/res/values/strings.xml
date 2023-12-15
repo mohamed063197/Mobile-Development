@@ -19,7 +19,12 @@
 
 
     <!-- Presentation -->
-    <string name="PresentationTextScann"> Scan the barcode on the medicine box and find out what this medicine is used for</string>
+
+    <string name="mainScanTitle">Scan</string>
+    <string name="mainRememberInformedTitle">Get informed, Remember</string>
+    <string name="mainScanDesc">Scan the barcode on the medicine box and find out what this medicine is used for</string>
+    <string name="mainRememberDesc">You can add a medication to the diary or favorite it for easier access</string>
+    <string name="mainInformedDesc">You can access all the drug information in writing, sound, video</string>
 
     <!-- Login and SingIn-->
     <string name="email">Email</string>
@@ -62,12 +67,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="home">Home</string>
     <string name="calender">Calender</string>
     <string name="scan">Scan</string>
     <string name="favorite">Favorite</string>
     <string name="profile">Profile</string>
+
+
 
 
 </resources>

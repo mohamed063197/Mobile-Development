@@ -19,7 +19,11 @@
         <string name="legal">Politiques</string>
 
         <!-- Presentation -->
-        <string name="PresentationTextScann">Scanner le code barre qui se trouve sur la boite du medicament et découvrer a quoi il sert ce medicament</string>
+        <string name="mainScanTitle">Scan</string>
+        <string name="mainRememberInformedTitle">S\'informer, Se rappeler</string>
+        <string name="mainScanDesc">Scanner le code barre qui se trouve sur la boîte du médicament et découvrez à quoi sert ce médicament</string>
+        <string name="mainRememberDesc">Vous pouvez ajouter un médicament dans l’agenda ou le mettre en favoris afin de faciliter l\'accès</string>
+        <string name="mainInformedDesc">Vous pouvez accéder à toutes les informations du médicament en écriture, son, video</string>
 
         <!-- Login and SingIn-->
         <string name="email">Email</string>
@@ -60,10 +64,11 @@
         <string name="next">Suivant</string>
         <string name="navigation_drawer_open">Ouvrir le menu</string>
         <string name="navigation_drawer_close">Fermer le menu</string>
-    <string name="home">Home</string>
-    <string name="scan">Scan</string>
-    <string name="favorite">Favorite</string>
+        <string name="home">Home</string>
+        <string name="scan">Scan</string>
+        <string name="favorite">Favorite</string>
         <string name="profile">Profile</string>
+        <string name="calender">Calender</string>
 
 
 </resources>

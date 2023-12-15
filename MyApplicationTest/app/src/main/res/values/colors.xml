@@ -13,6 +13,8 @@
     <color name="onPrimary">#FFFFFF</color> <!-- 500 -->
     <color name="onSecondary">#232323</color> <!-- 500 -->
 
+    <color name="gray">#8F908D</color>
+
     <!-- Button -->
     <!-- <color name="controlHighlight">#673AB7</color> -->
     <!-- <color name="buttonNormal">#FFA000</color> -->

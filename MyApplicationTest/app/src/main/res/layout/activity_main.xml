@@ -10,39 +10,41 @@
     android:padding="30dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/marginBottomTitle"
-        android:orientation="horizontal">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/welcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/paddingTopTitle"
-            android:paddingBottom="@dimen/paddingBottomTitle"
-            android:text="@string/welcome"
-            android:textAlignment="center"
-            android:textAppearance="@style/Title.Myapplication.Page" />
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/purple" />
+        android:text="@string/mainScanTitle"
+        android:textAlignment="center"
+        android:textAppearance="@style/Title.Myapplication.Page" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/welcome2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Body.Myapplication.Page"
-        android:text="@string/PresentationTextScann"
-        android:gravity="center"
-        android:layout_marginBottom="50dp"
-        />
 
+        android:textColor="@color/gray"
+        android:layout_marginBottom="20dp"
+        android:text="@string/mainRememberInformedTitle"
+        android:textAlignment="center"
+        android:textAppearance="@style/Title.Myapplication.Page" />
 
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/slider">
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <LinearLayout
+        android:id="@+id/dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"/>
 
     <Button
         android:id="@+id/login"
@@ -55,5 +57,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/SingInSubmit" />
+    <include layout="@layout/slides_layout"/>
 
 </LinearLayout>
