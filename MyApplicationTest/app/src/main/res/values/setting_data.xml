@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list">
+        <item>Update personnel information</item>
+        <item>dark mode</item>
+        <item>Log out</item>
+    </string-array>
+</resources>

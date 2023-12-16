@@ -4,12 +4,120 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/profile"
-        android:gravity="center"/>
+        android:layout_marginTop="44dp">
+        <!-- TODO: Update blank fragment layout -->
+        <ImageView
+            android:id="@+id/profile_avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/img_avatar"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profile_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/profile_avatar"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/gray"
+            android:text="HAMOUDA"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textAppearance="@style/Title.Myapplication.Page" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profile_pseudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/profile_name"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/gray"
+            android:text="med063197"
+            android:textAlignment="center"
+             />
+
+        <Button
+            android:id="@+id/profile_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_edit"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/profile_pseudo"
+            android:layout_marginTop="20dp"
+            />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_edit"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="40dp"
+
+            />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/profile_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/profile_mail"
+            android:layout_marginBottom= "20dp"
+            android:color="@color/primary"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profile_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/profile_version"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/gray"
+            android:text="ps.medevai@gmail.com"
+            android:textAlignment="center"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profile_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/gray"
+            android:text="Pharmax android version 90.2.2"
+            android:textAlignment="center"
+            />
+
+
+    </RelativeLayout>
+
+
+
 
 </FrameLayout>

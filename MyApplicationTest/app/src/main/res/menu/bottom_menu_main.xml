@@ -14,10 +14,7 @@
         android:icon="@drawable/ic_calender_24px"
         android:title="Calender"/>
     <item
-        android:id="@+id/scan"
-        android:enabled="true"
-        android:icon="@drawable/ic_scan_code_24px_2"
-        android:title="Scan"/>
+        android:title="" />
 
     <item
         android:id="@+id/favorite"

@@ -73,8 +73,7 @@
     <string name="scan">Scan</string>
     <string name="favorite">Favorite</string>
     <string name="profile">Profile</string>
-
-
+    <string name="profile_edit">Edit Profile</string>
 
 
 </resources>

@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/sliderImage"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/img_scan" />
+            android:layout_marginTop="176dp"
+            android:src="@drawable/img_scan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/sliderDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Body.Myapplication.Page"
-            android:text="@string/mainScanDesc"
+            android:layout_below="@+id/sliderImage"
             android:gravity="center"
-            android:layout_marginBottom="50dp" />
-</LinearLayout>
+            android:text="@string/mainScanDesc"
+            android:textAppearance="@style/Body.Myapplication.Page"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sliderImage"
+            app:layout_constraintVertical_bias="0.239" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.myapplication.R;
@@ -43,7 +44,7 @@ public class SliderAdapter extends PagerAdapter {
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
 
-        return view == (LinearLayout) object;
+        return view == (ConstraintLayout) object;
     }
     @NonNull
     @Override
@@ -64,7 +65,7 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object){
-        container.removeView((LinearLayout)object);
+        container.removeView((ConstraintLayout)object);
     }
 
 }

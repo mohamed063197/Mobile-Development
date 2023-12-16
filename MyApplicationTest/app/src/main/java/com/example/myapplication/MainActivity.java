@@ -19,7 +19,7 @@ import com.example.myapplication.uiclasses.SliderAdapter;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
-    LinearLayout dots;
+    Button admin;
     SliderAdapter sliderAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,15 @@ public class MainActivity extends AppCompatActivity {
 
         //Hooks
         viewPager = findViewById(R.id.slider);
-        dots = findViewById(R.id.dots);
 
+        admin =  findViewById(R.id.admin);
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(myIntent);
+            }
+        });
         //Call Adapter
         sliderAdapter = new SliderAdapter(MainActivity.this);
         viewPager.setAdapter(sliderAdapter);

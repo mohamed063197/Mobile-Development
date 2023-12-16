@@ -69,6 +69,7 @@
         <string name="favorite">Favorite</string>
         <string name="profile">Profile</string>
         <string name="calender">Calender</string>
+    <string name="profile_edit">Edit Profile</string>
 
 
 </resources>

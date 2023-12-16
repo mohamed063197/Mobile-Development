@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- circle_shape.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/gray" /> <!-- Couleur de fond (remplacez par votre couleur préférée) -->
+    <size android:width="120dp" android:height="120dp" /> <!-- Ajustez la taille selon vos besoins -->
+</shape>

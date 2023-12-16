@@ -1,44 +1,31 @@
 package com.example.myapplication;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.widget.SearchView;
 
-import android.app.Fragment;
-import android.app.Notification;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.classes.GlobalVariables;
 import com.example.myapplication.classes.User;
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.navigation.NavigationView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import org.w3c.dom.Text;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class HomeActivity extends AppCompatActivity {
+
     MaterialToolbar toolbar;
     User user;
     BottomNavigationView bottom_nav;
+    FloatingActionButton scan_nav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         toolbar =(MaterialToolbar) findViewById(R.id.topAppBar);
         bottom_nav = (BottomNavigationView) findViewById(R.id.bottom_nav);
+        scan_nav = (FloatingActionButton) findViewById(R.id.scan_nav) ;
 
         User user = new User();
         user.setId(GlobalVariables.getUserIdCourant());
@@ -61,24 +49,29 @@ public class HomeActivity extends AppCompatActivity {
         /*
         *   Menu de haut
         */
+
+
+
         toolbar.setOnMenuItemClickListener(new MaterialToolbar.OnMenuItemClickListener(){
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 String title = (String) item.getTitle();
-                Toast.makeText(HomeActivity.this, title + " Selected !", Toast.LENGTH_SHORT).show();
 
-                if(item.getItemId() == R.id.settings){ //click in button settings
-                    Toast.makeText(HomeActivity.this, "settings", Toast.LENGTH_SHORT).show();
-                } else if (item.getItemId() == R.id.help){ // click in button help
-                    Toast.makeText(HomeActivity.this, "help", Toast.LENGTH_SHORT).show();
-                }else if (item.getItemId() == R.id.profil){ // click in button profil
-                    Toast.makeText(HomeActivity.this, "Profil", Toast.LENGTH_SHORT).show();
+
+                if (item.getItemId() == R.id.menu_help){ // click in button help
+
+                }else if (item.getItemId() == R.id.menu_settings){ // click in button profil
+
+                }else if (item.getItemId() == R.id.menu_search){ // click in button profil
+                    Toast.makeText(HomeActivity.this, "ajouter element", Toast.LENGTH_SHORT).show();
                 }else{ //other case
 
                 }
                 return false;
             }
+
         });
+
         // Ajouter le fragment par défaut s'il n'y a pas d'état enregistré (par exemple, après une rotation de l'écran)
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -89,6 +82,15 @@ public class HomeActivity extends AppCompatActivity {
         /*
          *   Menu de bas
          */
+
+        scan_nav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentIntegrator integrator = new IntentIntegrator(HomeActivity.this);
+                integrator.setOrientationLocked(false); // Déverrouiller l'orientation
+                integrator.initiateScan();
+            }
+        });
         bottom_nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -100,11 +102,6 @@ public class HomeActivity extends AppCompatActivity {
                 }else if(item.getItemId() == R.id.calender) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.container, new CalenderFragment())
-                            .commit();
-                    return true;
-                }else if(item.getItemId() == R.id.scan) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, new ScanFragment())
                             .commit();
                     return true;
                 }else if(item.getItemId() == R.id.favorite) {
@@ -123,8 +120,55 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
+
+
+    // Méthode appelée lorsque le scanner a terminé
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() != null) {
+                // Utilisez result.getContents() pour obtenir la valeur du code QR
+                String qrCodeValue = result.getContents();
+                // Faites quelque chose avec la valeur du code QR (par exemple, l'afficher dans un Toast)
+                Toast.makeText(HomeActivity.this,qrCodeValue+"",Toast.LENGTH_LONG).show();
+
+            } else {
+                // Aucun résultat
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        Toast.makeText(HomeActivity.this,"CreateOptionsMenu",Toast.LENGTH_LONG).show();
+        getMenuInflater().inflate(R.menu.top_menu_main, menu);
+
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        searchView.setQueryHint("Search Data here ...");
+        MenuItem.OnActionExpandListener onActionExpandListener = new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(@NonNull MenuItem menuItem) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(@NonNull MenuItem menuItem) {
+                return true;
+            }
+
+        };
+        menu.findItem(R.id.menu_search).setOnActionExpandListener(onActionExpandListener);
+
+        return true;
+    }
+
 
 }
