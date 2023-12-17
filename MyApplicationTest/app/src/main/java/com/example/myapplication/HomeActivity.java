@@ -37,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
 
         User user = new User();
         user.setId(GlobalVariables.getUserIdCourant());
-
+        user.read(HomeActivity.this);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,6 +122,9 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    public User getUser(){
+        return this.user;
+    }
 
     // Méthode appelée lorsque le scanner a terminé
     @Override

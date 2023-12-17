@@ -203,6 +203,32 @@ public class MyDatabase extends SQLiteOpenHelper {
         return false;
     }
 
+    public boolean readUserByPhoneUpdate(User user, String phone_courant){
+        SQLiteDatabase db = getReadableDatabase();
+        String where="";
+        //where
+        where += COL_TEL_NAME+ " = ?";
+        where += " AND " + COL_TEL_NAME+ " <> ?";
+
+        //args
+        String args[]={user.getNumeroTel()+"", phone_courant};
+        String req = new StringBuilder().append("SELECT * FROM ").append(this.getTableUserName()).append(" WHERE ").append(where).toString();
+        Cursor cursor = db.rawQuery(req,args);
+
+        if (cursor.moveToFirst()){
+            user.setId(cursor.getInt(Math.abs(cursor.getColumnIndex(COL_ID_NAME))));
+            user.setName(cursor.getString(Math.abs(cursor.getColumnIndex(COL_NAME_NAME))));
+            user.setMail(cursor.getString(Math.abs(cursor.getColumnIndex(COL_MAIL_NAME))));
+            //user.setPseudo(cursor.getString(Math.abs(cursor.getColumnIndex(COL_PSEUDO_NAME))));
+            user.setPassword(cursor.getString(Math.abs(cursor.getColumnIndex(COL_PASSWORD_NAME))));
+            user.setAge(cursor.getInt(Math.abs(cursor.getColumnIndex(COL_AGE_NAME))));
+            user.setNumeroTel(cursor.getString(Math.abs(cursor.getColumnIndex(COL_TEL_NAME))));
+            return true;
+        }
+        cursor.close();
+        return false;
+    }
+
     public boolean readUserByMail(User user){
         SQLiteDatabase db = getReadableDatabase();
         String where="";
@@ -229,6 +255,33 @@ public class MyDatabase extends SQLiteOpenHelper {
         return false;
     }
 
+
+    public boolean readUserByMailUpdate(User user, String mail_courant){
+        SQLiteDatabase db = getReadableDatabase();
+        String where="";
+        //where
+        where += COL_MAIL_NAME+ " = ?";
+        where += " AND "+ COL_MAIL_NAME+ " <> ?";
+
+        //args
+        String args[]={user.getMail()+"", mail_courant};
+        String req = new StringBuilder().append("SELECT * FROM ").append(this.getTableUserName()).append(" WHERE ").append(where).toString();
+        Cursor cursor = db.rawQuery(req,args);
+
+        User return_user = new User();
+        if (cursor.moveToFirst()){
+            user.setId(cursor.getInt(Math.abs(cursor.getColumnIndex(COL_ID_NAME))));
+            user.setName(cursor.getString(Math.abs(cursor.getColumnIndex(COL_NAME_NAME))));
+            user.setMail(cursor.getString(Math.abs(cursor.getColumnIndex(COL_MAIL_NAME))));
+            //user.setPseudo(cursor.getString(Math.abs(cursor.getColumnIndex(COL_PSEUDO_NAME))));
+            user.setPassword(cursor.getString(Math.abs(cursor.getColumnIndex(COL_PASSWORD_NAME))));
+            user.setAge(cursor.getInt(Math.abs(cursor.getColumnIndex(COL_AGE_NAME))));
+            user.setNumeroTel(cursor.getString(Math.abs(cursor.getColumnIndex(COL_TEL_NAME))));
+            return true;
+        }
+        cursor.close();
+        return false;
+    }
     public ArrayList<User> readAllUsers(){
         ArrayList<User> users = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();

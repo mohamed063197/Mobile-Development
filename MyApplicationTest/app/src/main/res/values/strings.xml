@@ -74,6 +74,9 @@
     <string name="favorite">Favorite</string>
     <string name="profile">Profile</string>
     <string name="profile_edit">Edit Profile</string>
+    <string name="EditProfilSubmit">Edit profil</string>
+    <string name="EditProfileSubmit">Edit profile</string>
+    <string name="settings">Settings</string>
 
 
 </resources>

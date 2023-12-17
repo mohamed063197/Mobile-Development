@@ -83,6 +83,14 @@ public class User {
         return (db_phone_valid);
     }
 
+    public boolean dbInputControlUpdate(Context context, String mail_courant, String phone_courant){
+        this.dbErrors.clear();
+        boolean db_mail_valid = this.readByMailUpdate(context, mail_courant);
+        boolean db_phone_valid = this.readByPhoneUpdate(context, phone_courant);
+        return (db_mail_valid && db_phone_valid);
+
+    }
+
 
     public void clear(){
         this.id = 0;
@@ -117,6 +125,22 @@ public class User {
         return (name_valid &&
                 numeroTel_valid &&
                 age_valid);
+    }
+
+    public boolean inputControlUpdate( String mail, String password, String passwordC, String name, String numeroTel, int age){
+        this.errors.clear();
+        boolean mail_valid = this.setMail(mail);
+        boolean pwd_valid = this.setPassword(password);
+        boolean pwdC_valid = this.setPasswordC(passwordC);
+        boolean name_valid = this.setName(name);
+        boolean numeroTel_valid = this.setNumeroTel(numeroTel);
+        boolean age_valid = this.setAge(age);
+        return (mail_valid &&
+                pwd_valid &&
+                pwdC_valid &&
+                name_valid &&
+                numeroTel_valid &&
+                age_valid );
     }
 
    public HashMap<Error, String> getErrors(){
@@ -156,12 +180,11 @@ READ METHODS
         return users;
     }
    public boolean read(Context context){
-        this.dbErrors.remove(Error.MAIL);
-       this.dbErrors.remove(Error.PASSWORD);
+        this.dbErrors.clear();
         MyDatabase db = new MyDatabase(context);
         boolean find = db.readUser(this);
         if (!find){
-            this.dbErrors.put(Error.MAIL,"mail ou le mot de passe n'existe pas");
+
             db.close();
             return false;
         }
@@ -199,6 +222,32 @@ READ METHODS
         this.dbErrors.remove(Error.NUMERO_TELEPHONE);
         MyDatabase db = new MyDatabase(context);
         boolean find = db.readUserByPhone(this);
+        if (find){
+            this.dbErrors.put(Error.NUMERO_TELEPHONE,"Numero de tel exist deja");
+            db.close();
+            return false;
+        }
+        db.close();
+        return true;
+    }
+
+    public boolean readByMailUpdate(Context context, String mail_courant){
+        this.dbErrors.remove(Error.MAIL);
+        MyDatabase db = new MyDatabase(context);
+        boolean find = db.readUserByMailUpdate(this, mail_courant);
+        if (find){
+            this.dbErrors.put(Error.MAIL,"Mail exist deja");
+            db.close();
+            return false;
+        }
+        db.close();
+        return true;
+    }
+
+    public boolean readByPhoneUpdate(Context context, String phone_courant){
+        this.dbErrors.remove(Error.NUMERO_TELEPHONE);
+        MyDatabase db = new MyDatabase(context);
+        boolean find = db.readUserByPhoneUpdate(this, phone_courant);
         if (find){
             this.dbErrors.put(Error.NUMERO_TELEPHONE,"Numero de tel exist deja");
             db.close();

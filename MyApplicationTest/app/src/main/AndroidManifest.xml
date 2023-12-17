@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
     <application
         android:name=".classes.GlobalVariables"
         android:allowBackup="true"
@@ -16,28 +18,29 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize"/>
-        <!-- screenOrientation : Pour bloquer le screen en portrait -->
-        <!-- configChanges : pour dire que il ne faut pas passer par les fonctions on restart .. lors du changement de l'orientation-->
+            android:screenOrientation="portrait" /> <!-- screenOrientation : Pour bloquer le screen en portrait -->
+        <!-- configChanges : pour dire que il ne faut pas passer par les fonctions on restart .. lors du changement de l'orientation -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity2"
             android:exported="false" />
-
         <activity
             android:name=".SingInActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".SingInActivity2"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".SingInActivity3"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -47,8 +50,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

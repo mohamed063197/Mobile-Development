@@ -1,12 +1,20 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.myapplication.classes.GlobalVariables;
+import com.example.myapplication.classes.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +27,9 @@ public class ProfileFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    Button btn_submit;
+    TextView name;
+    User user;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -58,7 +69,31 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+            // Inflate the layout for this fragment
+        View rootView =  inflater.inflate(R.layout.fragment_profile, container, false);
+
+        /* Hooks */
+        btn_submit = (Button) rootView.findViewById(R.id.profile_submit);
+        name = (TextView) rootView.findViewById(R.id.profile_name);
+
+        /* Get User */
+        user = new User();
+        user.setId(GlobalVariables.getUserIdCourant());
+
+
+        if (user.read(getActivity()))
+            name.setText(user.getName());
+        btn_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getActivity(), EditProfileActivity.class);
+                startActivity(myIntent);
+
+            }
+        });
+        return rootView;
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 }
