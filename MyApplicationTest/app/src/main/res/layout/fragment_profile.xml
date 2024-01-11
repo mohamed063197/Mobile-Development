@@ -99,7 +99,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:textColor="@color/gray"
-            android:text="ps.medevai@gmail.com"
+            android:text="contact@pharmax.com"
             android:textAlignment="center"
             />
         <com.google.android.material.textview.MaterialTextView

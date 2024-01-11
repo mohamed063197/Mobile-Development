@@ -25,8 +25,6 @@ public class User {
     private final static String MAIL_PATTERN = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z]{2,}$";
     private final static String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\\d!@#$%^&*()_+]{6,}$";
 
-
-
     public User(){
         this.id = 0;
         this.name = "";
@@ -38,18 +36,9 @@ public class User {
         this.errors= new HashMap<Error,String>();
         this.dbErrors = new HashMap<Error,String>();
     }
-
-    /* Séréalisation */
-
-
-
-
-
-
-
     /*
         CONTROL METHODS
-         */
+     */
     public boolean inputControlLogin(String mail, String password){
         this.errors.clear();
         boolean mail_valid = this.setMail(mail);

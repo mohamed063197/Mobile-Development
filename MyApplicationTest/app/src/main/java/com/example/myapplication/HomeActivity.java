@@ -78,7 +78,6 @@ public class HomeActivity extends AppCompatActivity {
                     .replace(R.id.container, new HomeFragment())
                     .commit();
         }
-
         /*
          *   Menu de bas
          */
@@ -86,9 +85,16 @@ public class HomeActivity extends AppCompatActivity {
         scan_nav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("QRCode","");
+                Intent myIntent = new Intent(HomeActivity.this, DetailsMedecineActivity.class);
+                myIntent.putExtras(bundle);
+                startActivity(myIntent);
+                /*
                 IntentIntegrator integrator = new IntentIntegrator(HomeActivity.this);
                 integrator.setOrientationLocked(false); // Déverrouiller l'orientation
                 integrator.initiateScan();
+                 */
             }
         });
         bottom_nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -135,7 +141,11 @@ public class HomeActivity extends AppCompatActivity {
                 // Utilisez result.getContents() pour obtenir la valeur du code QR
                 String qrCodeValue = result.getContents();
                 // Faites quelque chose avec la valeur du code QR (par exemple, l'afficher dans un Toast)
-                Toast.makeText(HomeActivity.this,qrCodeValue+"",Toast.LENGTH_LONG).show();
+                Bundle bundle = new Bundle();
+                bundle.putString("QRCode",qrCodeValue);
+                Intent myIntent = new Intent(HomeActivity.this, DetailsMedecineActivity.class);
+                myIntent.putExtras(bundle);
+                startActivity(myIntent);
 
             } else {
                 // Aucun résultat
@@ -144,9 +154,6 @@ public class HomeActivity extends AppCompatActivity {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
